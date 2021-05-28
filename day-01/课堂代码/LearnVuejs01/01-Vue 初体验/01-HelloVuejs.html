@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
+<body>
+
+<div id="app">{{message}}</div>
+<div>{{message}}</div>
+
 <script src="../js/vue.js"></script>
 <script>
 
     // 创建 vue 实例
     // let 变量
     // const 常量
-    const app = new Vue({})
+    //声明式编程
+    const app = new Vue({
+
+        //使用 vue 管理 id 为 app 的标签
+        //el: 用于挂载要管理的元素
+        el: '#app',
+
+        //定义数据
+        data: {
+            message: '吴汪胜,你好!',
+        }
+    })
 </script>
-<body>
+
 </body>
 </html>
