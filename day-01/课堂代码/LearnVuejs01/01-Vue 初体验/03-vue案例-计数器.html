@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数: {{cnt}}</h2>
+
+    <!--监听事件 v-on:click="函数或者操作"-->
+    <!--<button v-on:click="cnt++">+</button>-->
+    <!--<button v-on:click="cnt&#45;&#45;">-</button>-->
+
+    <button v-on:click="increment">+</button>
+    <button v-on:click="subtraction">-</button>
+
+    <!--简写 @click=""-->
+    <button @click="subtraction">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+    //使用 Vue 进行管理
+    const app = new Vue({
+
+        //挂载元素
+        el: '#app',
+
+        //定义数据
+        data: {
+
+            //计数变量
+            cnt: 0
+        },
+
+        //定义方法 methods:{变量名:function(){//方法体}}
+        methods: {
+            increment: function () {
+                console.log('add 被执行');
+                this.cnt++;
+            },
+            subtraction: function () {
+                console.log('subtraction 被执行');
+                this.cnt--;
+            },
+
+        }
+    })
+</script>
+</body>
+</html>

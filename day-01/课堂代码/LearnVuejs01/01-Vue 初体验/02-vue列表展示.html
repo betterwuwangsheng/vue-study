@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{message}} <br>
+    {{movies}}
+
+    <!--列表形式展示-->
+    <ul>
+
+        <!--遍历指令 v-for="item in movies" -->
+        <li v-for="item in movies">
+            {{item}}
+        </li>
+    </ul>
+</div>
+
+<!--展示列表-->
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+
+        //挂载元素
+        el: '#app',
+
+        //定义数据
+        data: {
+            message: '你好啊',
+
+            //数组
+            movies: ['星际穿越', '大话西游', '绿皮书']
+        }
+    })
+</script>
+</body>
+</html>

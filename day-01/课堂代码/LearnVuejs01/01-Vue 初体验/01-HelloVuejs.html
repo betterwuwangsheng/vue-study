@@ -7,13 +7,18 @@
 
 <body>
 
-<div id="app">{{message}}</div>
-<div>{{message}}</div>
-
+<div id="app">
+    <h2>{{message}}</h2>
+    <h1>{{name}}</h1>
+</div>
 <script src="../js/vue.js"></script>
 <script>
 
-    // 创建 vue 实例
+    /**
+     * el 属性: 决定 Vue 对象挂载哪一个元素
+     * data 属性: 定义数据(直接定义或者服务器加载)
+     */
+        // 创建 vue 实例
     // let 变量
     // const 常量
     //声明式编程
@@ -26,6 +31,7 @@
         //定义数据
         data: {
             message: '吴汪胜,你好!',
+            name: 'wws'
         }
     })
 </script>
