@@ -13,7 +13,7 @@
     <!--<button v-on:click="cnt&#45;&#45;">-</button>-->
 
     <button v-on:click="increment">+</button>
-    <button v-on:click="subtraction">-</button>
+    <!--<button v-on:click="subtraction">-</button>-->
 
     <!--简写 @click=""-->
     <button @click="subtraction">-</button>
@@ -36,6 +36,8 @@
         },
 
         //定义方法 methods:{变量名:function(){//方法体}}
+        //方法 -> method
+        //函数 -> function(){}
         methods: {
             increment: function () {
                 console.log('add 被执行');
@@ -46,6 +48,12 @@
                 this.cnt--;
             },
 
+        },
+        created: function () {
+            console.log('created');
+        },
+        mounted: function () {
+            console.log('mounted');
         }
     })
 </script>
