@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!-- 样式控制-->
+  <style>
+
+      /*
+        类选择器: .xx{}
+        id 选择器: #xx{}
+        标签选择器:标签{}
+        属性选择器:[属性]{}
+      */
+      [v-cloak] {
+          display: none;
+      }
+  </style>
+</head>
+<body>
+
+<!-- v-cloak 当数据还在加载时不显示原样-->
+<div id="app" v-cloak>
+  <h1>{{message}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    /*
+    * 在 vue 解析之前, div 中有一个属性 v-cloak
+    * 在 vue 解析后, div 中没有属性 v-cloak
+    * */
+    setTimeout(function () {
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'wws',
+            }
+        })
+    }, 1000);
+</script>
+</body>
+</html>

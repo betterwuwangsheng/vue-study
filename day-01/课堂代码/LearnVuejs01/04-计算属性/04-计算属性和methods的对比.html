@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 直接拼接 一般不采用-->
+  <h2>{{firstName + ' ' + lastName}}</h2>
+  <!-- 通过定义 methods  每次调用都会使用一次函数-->
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <!-- 通过定义 computed 有没有变化则仅调用一次 一般使用计算属性好一些 -->
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            firstName: '吴',
+            lastName: '汪胜',
+        },
+
+        methods: {
+            getFullName: function () {
+                console.log('getFullName');
+                return this.firstName + ' ' + this.lastName;
+
+            }
+        },
+        //计算属性 -> 不使用动词
+        computed: {
+            fullName: function () {
+                console.log('fullName');
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+    })
+</script>
+</body>
+</html>

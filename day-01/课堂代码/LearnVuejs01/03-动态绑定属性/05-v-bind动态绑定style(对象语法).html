@@ -6,10 +6,11 @@
 </head>
 <body>
 <div id="app">
-  <h2>{{message}}</h2>
-  <h2>{{message}},你好</h2>
-  <h2>{{firstName + ' ' + lastName}}</h2>
-  <h2>{{2 * counter}}</h2>
+
+  <!-- 加 '' 字符串-->
+  <!-- 不加 '' 变量-->
+  <h2 :style="{fontSize:'50px'}">{{message}}</h2>
+  <h2 :style="{fontSize:fontSize}">{{message}}</h2>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -18,13 +19,8 @@
         el: '#app',
         data: {
             message: 'wws',
-            firstName: '吴',
-            lastName: '汪胜',
-            counter: 100,
-        },
-
-        //计算属性
-        computed: {},
+            fontSize: '100px',
+        }
     })
 </script>
 </body>

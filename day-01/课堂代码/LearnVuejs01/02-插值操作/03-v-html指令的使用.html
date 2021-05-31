@@ -6,10 +6,12 @@
 </head>
 <body>
 <div id="app">
-  <h2>{{message}}</h2>
-  <h2>{{message}},你好</h2>
-  <h2>{{firstName + ' ' + lastName}}</h2>
-  <h2>{{2 * counter}}</h2>
+
+  <!-- 直接显示数据 -->
+  <h1>{{url}}</h1>
+
+  <!-- 以 html 形式显示-->
+  <h1 v-html="url"></h1>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -18,13 +20,9 @@
         el: '#app',
         data: {
             message: 'wws',
-            firstName: '吴',
-            lastName: '汪胜',
-            counter: 100,
-        },
 
-        //计算属性
-        computed: {},
+            url: '<a href = "https://www.baidu.com">百度一下</a>',
+        }
     })
 </script>
 </body>

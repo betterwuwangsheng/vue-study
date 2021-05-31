@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      .active {
+          color: red;
+      }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2 class="active">{{message}}</h2>
+  <h2 :class="active">{{message}}</h2>
+
+  <!-- 此时 :class="{类名1:true, 类名2:boolean}" 表示一个对象 可以存放键值对 -->
+  <!-- 可以决定加载时是否有对应类名 -->
+
+  <h2 class="title" :class="getClasses()">{{message}}</h2>
+
+  <!-- 通过变量控制样式 -->
+  <button v-on:click="btnClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'wws',
+
+            //变量 active 的值为 active
+            active: 'active',
+
+            //变量: 可以动态设置
+            isActive: true,
+            isLine: true,
+        },
+
+        // methods 中使用 data 中的变量要加 this
+        methods: {
+
+            //该变量为方法
+            btnClick: function () {
+                this.isActive = !this.isActive
+            },
+            getClasses: function f() {
+                return {active: this.isActive, line: this.isLine}
+            }
+        },
+    })
+</script>
+</body>
+</html>

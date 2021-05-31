@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <!-- 动态图片-->
+  <!-- 写死 -->
+  <img src="https://cn.vuejs.org/images/logo.png" alt="">
+
+  <!-- 此时为原样输出 -->
+  <!-- 此时 imgUrl 为字符串 -->
+  <img src="imgUrl" alt="">
+
+  <!-- 动态绑定值 v-bind:src="imgUrl" 在指定标签属性前加 v-bind:-->
+  <!-- 此时 imgUrl 为变量-->
+  <img v-bind:src="imgUrl" alt="">
+
+  <!-- v-bind 简写 :属性="xxx" -->
+  <img :src="imgUrl" alt="">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'wws',
+            imgUrl: 'https://cn.vuejs.org/images/logo.png',
+        }
+    })
+</script>
+</body>
+</html>
