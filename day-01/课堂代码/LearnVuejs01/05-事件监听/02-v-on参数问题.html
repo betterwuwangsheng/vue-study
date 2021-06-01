@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <!--时间调用的方法没有参数-->
+  <button @click="btn1Click()">按钮1</button>
+  <!--<button @click="btn1Click">按钮2</button>-->
+
+  <!--事件定义时, 写函数时省略小括号,但是方法本身要一个参数-->
+  <!--此时 vue 会将浏览器产生的 event 对象作为参数-->
+  <button @click="btn2Click(2)">按钮2</button>
+
+  <!--不传参数则返回事件对象-->
+  <!--<button @click="btn2Click">按钮4</button>-->
+
+  <!--方法定义时,需要 event 对象时同时还需要其他对象-->
+  <!--默认将第一个参数赋值为 event 事件-->
+  <button @click="btn3Click">按钮3</button>
+
+  <!--手动获取浏览器产生的 event 事件对象 $event-->
+  <!-- vue 中不加 '' 认为是变量(基本数据类型除外)-->
+  <button @click="btn3Click(123,$event)">按钮4</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'wws',
+        },
+        methods: {
+            btn1Click() {
+                console.log('btn1Click')
+            },
+            btn2Click(event) {
+                console.log('----------', event)
+            },
+            btn3Click(param, event) {
+                console.log(param, event)
+            },
+        },
+    })
+</script>
+</body>
+</html>

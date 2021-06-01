@@ -8,6 +8,11 @@
 <div id="app">
 </div>
 
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
 <script src="../js/vue.js"></script>
 <script>
     //变量作用域: 变量在什么范围内可用
@@ -22,6 +27,23 @@
 
     //作用域外无法使用
     //console.log(a);
+
+    //没有块级作用域硬气的问题: for 的块级
+    var btns = document.getElementsByTagName('button');
+
+    //以下代码 i 遍历到 5
+    // for (var i = 0; i < btns.length; ++i) {
+    //     btns[i].addEventListener('click', function () {
+    //         console.log('第' + i + '个按钮被点击');
+    //     })
+    // }
+
+    //正确写法
+    for (let i = 0; i < btns.length; ++i) {
+        btns[i].addEventListener('click', function () {
+            console.log('第' + i + '个按钮被点击');
+        })
+    }
 </script>
 </body>
 </html>
