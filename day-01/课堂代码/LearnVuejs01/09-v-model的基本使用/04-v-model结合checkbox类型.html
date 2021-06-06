@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <!-- label 包裹可以点击文字进行选择 -->
+  <label for="agreement">
+    <input type="checkbox" id="agreement" v-model="isAgree"> 同意协议
+  </label>
+
+  <h2>您选择的是: {{isAgree}}</h2>
+  <button :disabled="!isAgree">下一步</button>
+  <br/>
+  <!--  多选框-->
+  <label for="basketball">
+    <input type="checkbox" value="篮球" id="basketball" v-model="hobbies">篮球
+  </label>
+  <label for="football">
+    <input type="checkbox" value="足球" id="football" v-model="hobbies">足球
+  </label>
+  <label for="table-tennis">
+    <input type="checkbox" value="乒乓球" id="table-tennis" v-model="hobbies">乒乓球
+  </label>
+
+  <h2>您的爱好是:{{hobbies}}</h2>
+  <!--v-model 是双向绑定,即表单可以拿到 vue 中的数据,表单中的数据也可以传到 vue 中-->
+  <!--v-bind:value 只能是表单拿到 vue 的数据, vue无法拿到表单的数据-->
+  <!-- 值绑定(动态获取数据 -> 单向) :value -->
+  <label v-for="item in originHobbies" :for="item">
+    <input type="checkbox" :value="item" v-model="item" :id="item">{{item}}
+  </label>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isAgree: false,
+      //多选框对应数组 []
+      hobbies: [],
+      originHobbies: ['篮球', '足球', '乒乓球']
+    }
+  })
+</script>
+</body>
+</html>

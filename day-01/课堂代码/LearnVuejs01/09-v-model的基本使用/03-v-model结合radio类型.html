@@ -6,7 +6,18 @@
 </head>
 <body>
 <div id="app">
-  {{message}}
+
+  <!-- name 相同 name 的 radio 只能选择一个(互斥) -->
+  <label for="male">
+
+    <!-- v-model="sex" 绑定双向 sex(变量)-->
+    <input type="radio" id="male" id="male" name="sex" v-model="sex" value="男"> 男
+  </label>
+  <label for="female">
+    <input type="radio" id="female" id="female" name="sex" v-model="sex" value="女"> 女
+  </label>
+
+  <h2>你的性别是: {{sex}}</h2>
 </div>
 
 <script src="../js/vue.js"></script>
@@ -15,6 +26,7 @@
     el: '#app',
     data: {
       message: 'wws',
+      sex: '男',
     }
   })
 </script>
