@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  //全局组件注册的语法糖
+  //创建组件构造器(要使用才有效)
+  const cpnC1 = Vue.extend({
+    // //定义模板
+    // template: `
+    //   <div>
+    //       <h2>我是标题1</h2>
+    //       <p>我是内容1</p>
+    //   </div>
+    // `
+  })
+
+  //注册全局组件
+  // Vue.component('cpn1', {
+  //   //定义模板
+  //   template: `
+  //     <div>
+  //         <h2>我是标题1</h2>
+  //         <p>我是内容1</p>
+  //     </div>
+  //   `
+  // })
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'wws',
+    },
+
+    //注册组件
+    components: {
+      //注册局部组件 -> 类似函数的定义
+      'cpn2': {
+        //定义模板
+        template: `
+          <div>
+              <h2>我是标题2</h2>
+              <p>我是内容2</p>
+          </div>
+    `
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!-- 组件使用: 可以用 <div> 标签包裹 -->
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+
+  <div>
+    <my-cpn></my-cpn>
+  </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  //ES6
+  //const str = ''
+  //const str = `abdc
+  // aaaaaaa
+  // s`
+  //1.创建组件构造器对象
+  const cpnC = Vue.extend({
+    //定义模板
+    template: `<div>
+                  <h2>我是标题</h2>
+                  <p>我是内容1</p>
+                  <p>我是内容2</p>
+               </div>`
+  })
+  //2.注册组件(全局组件 -> 多个 Vue 的实例对象下使用) -> 定义组件名
+  //Vue.component('my-cpn', cpnC)
+
+  //3.使用组件
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'wws',
+    },
+    methods: {},
+    //组件属性 -> 创建局部组件
+    components: {
+      //cpn 使用组件时的标签名称
+      cpn: cpnC
+    },
+  })
+</script>
+</body>
+</html>
