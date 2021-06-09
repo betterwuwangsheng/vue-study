@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :number1="num1" :number2="num2"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>props: {{number1}}</h2>
+    <h2>data: {{dnumber1}}</h2>
+    <input type="text" v-model="dnumber1">
+    <h2>props: {{number2}}</h2>
+    <h2>data: {{dnumber2}}</h2>
+    <input type="text" v-model="dnumber2">
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      num1: 0,
+      num2: 1
+    },
+
+    //局部组件
+    components: {
+      cpn: {
+        template: '#cpn',
+
+        data() {
+          return {
+            dnumber1: this.number1,
+            dnumber2: this.number2,
+          }
+        },
+
+        //父组件向子组件传递数据
+        //双向绑定不建议使用 props
+        props: {
+          number1: Number,
+          number2: Number,
+        },
+        computed: {},
+      }
+    },
+  })
+</script>
+</body>
+</html>

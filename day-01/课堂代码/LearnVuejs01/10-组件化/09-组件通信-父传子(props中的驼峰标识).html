@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 使用组件 -->
+  <div>
+    <cpn :c-info="info"></cpn>
+  </div>
+</div>
+
+<template id="cpn">
+  <h2>{{cInfo}}</h2>
+</template>
+
+
+<script src="../js/vue.js"></script>
+<script>
+
+  //注册组件(语法糖方式) -> 全局注册
+  //Vue.component('cpn', {})
+  const cpn = {
+    template: '#cpn',
+
+    //父组件向子组件传递数据 -> props
+    props: {
+      cInfo: {
+
+        //类型
+        type: Object,
+
+        //默认值
+        default() {
+          return {}
+        }
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      info: {
+        name: 'wws',
+        age: 23,
+        height: 166
+      },
+    },
+
+    //注册局部组件
+    components: {
+      cpn
+    },
+  })
+</script>
+</body>
+</html>
