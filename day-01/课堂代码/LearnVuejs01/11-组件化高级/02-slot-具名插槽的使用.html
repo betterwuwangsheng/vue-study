@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn>
+
+    <!--替换插槽(用具体内容填充插槽)-->
+    <button>按钮</button>
+  </cpn>
+  <cpn>
+    <span>哈哈</span>
+  </cpn>
+  <cpn>
+    <h1>吴汪胜</h1>
+  </cpn>
+  <cpn>
+    <ul>
+      <li>hhh </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h1>我是组件</h1>
+    <p>我是组件, 哈哈哈</p>
+
+    <!-- 定义插槽(预留空间--增强可拓展性) -->
+    <slot></slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'wws',
+    },
+    components: {
+
+      //局部组件
+      cpn: {
+        template: '#cpn'
+      }
+    },
+  })
+</script>
+</body>
+</html>
