@@ -6,24 +6,17 @@
 </head>
 <body>
 <div id="app">
-  <cpn>
 
-    <!--替换插槽(用具体内容填充插槽)-->
-    <!-- 使用 slot='插槽名称'进行指定替换 -->
-    <span slot="left">左边</span>
-  </cpn>
+  <!-- 使用的是实例中的 isSHow 而不是组件中的 isSHow -->
+  <!-- cpn 模板属于 Vue 实例 => 到 Vue 实例中去查找相关变量-->
+  <!-- 只会在自己的作用域中查找变量 -->
+  <cpn v-show="isSHow"></cpn>
 </div>
 
 <template id="cpn">
   <div>
     <h1>我是组件</h1>
     <p>我是组件, 哈哈哈</p>
-
-    <!-- 定义插槽(预留空间--增强可拓展性) -->
-    <!-- name 属性定义名称 -->
-    <slot name="left"><span>左边</span></slot>
-    <slot name="center"><span>中间</span></slot>
-    <slot name="right"><span>右边</span></slot>
   </div>
 </template>
 
@@ -33,12 +26,18 @@
     el: '#app',
     data: {
       message: 'wws',
+      isSHow: true,
     },
     components: {
 
       //局部组件
       cpn: {
-        template: '#cpn'
+        template: '#cpn',
+        data() {
+          return {
+            isSHow: false,
+          }
+        }
       }
     },
   })
