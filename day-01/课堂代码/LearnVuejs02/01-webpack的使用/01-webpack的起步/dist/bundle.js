@@ -65,14 +65,24 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__info__ = __webpack_require__(2);
 //导入 -> 通过 require 导入
 const {add, mul} = __webpack_require__(1)
 
 
 console.log(add(20, 30));
 console.log(mul(20, 30));
+
+// ES6 导入方式
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__info__["c" /* name */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__info__["a" /* age */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__info__["b" /* height */]);
 
 /***/ }),
 /* 1 */
@@ -91,6 +101,23 @@ module.exports = {
     add,
     mul,
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//ES6 导出方式
+const name = 'wws'
+/* harmony export (immutable) */ __webpack_exports__["c"] = name;
+
+const age = 23
+/* harmony export (immutable) */ __webpack_exports__["a"] = age;
+
+const height = 166
+/* harmony export (immutable) */ __webpack_exports__["b"] = height;
+
+
 
 /***/ })
 /******/ ]);
