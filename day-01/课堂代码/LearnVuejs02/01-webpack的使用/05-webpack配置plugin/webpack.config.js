@@ -96,7 +96,9 @@ module.exports = {
       //以 index.html 文件为模板
       template: 'index.html',
     }),
-    new UglifyjsWebpackPlugin()
+
+    //开发阶段不建议使用
+    //new UglifyjsWebpackPlugin()
   ],
 
   //开发时服务器
