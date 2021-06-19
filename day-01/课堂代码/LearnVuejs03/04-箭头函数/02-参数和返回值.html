@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //参数问题
+  //两个参数
+  const sum = (num1, num2) => {
+    return num1 + num2
+  }
+
+  //一个参数 () 可以省略
+  const power1 = (num) => {
+    return num * num
+  }
+  const power2 = num => {
+    return num * num
+  }
+
+  //函数中
+  const test = () => {
+    //打印 hello world
+    console.log("HelloWorld")
+
+    //打印 Hello Vue
+    console.log("Hello Vue")
+  }
+
+  //函数代码块中只有一行代码
+  const mul = (num1, num2) => num1 * num2
+  console.log(mul(20, 30))
+
+  const demo = () => console.log("HelloWorld")
+  console.log(demo());
+  /**
+   * render: h => h(App)
+   *
+   *相当于
+   *
+   * render: (h) => {
+   *    return h(App)
+   * }
+   * */
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //此处  window 定义了 this
+  //什么时候使用箭头函数
+  //函数作为另一个参数
+  // setTimeout(function () {
+  //   console.log(this) //window (此处未定义 this)
+  // }, 1000)
+  //
+  // setTimeout(() => {
+  //   console.log(this) //window (此处未定义 this)
+  // }, 100)
+
+  //结论: 箭头函数中的 this 是如何查找的
+  //想外层作用域中一层层查找 this, 直到有 this 的定义
+  const obj = {
+
+    //此处 obj 对象定义了 this
+    run() {
+      setTimeout(function () {
+        setTimeout(function () {
+          console.log(this) //window (此处未定义 this)
+        })
+
+        //this (抵触 this 指向 window)
+        setTimeout(() => {
+          console.log(this)//window (指向 run 中 this)
+        })
+      })
+
+      setTimeout(() => {
+        setTimeout(function () {
+          console.log(this) //window (此处未定义 this)
+        })
+
+        //this
+        setTimeout(() => {
+          console.log(this) // obj (此处为 obj 中定义的 this)
+        })
+      })
+    },
+  }
+  obj.run()
+</script>
+</body>
+</html>
