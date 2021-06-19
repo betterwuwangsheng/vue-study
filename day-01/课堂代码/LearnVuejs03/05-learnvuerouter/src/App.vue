@@ -1,22 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
-    <router-view />
+    <!-- 使用 route-link 标签的 to 属性设置要跳转的路径(与 router/index.js 一致) -->
+    <router-link to="/home">首页</router-link>
+    <router-link to="/about">关于</router-link>
+
+    <!-- 相当于占位 -->
+    <router-view></router-view>
   </div>
 </template>
 <script>
+import About from "./components/About.vue";
 export default {
+  components: { About },
   name: "App"
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
