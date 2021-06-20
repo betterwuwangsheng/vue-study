@@ -11,6 +11,11 @@ Vue.use(VueRouter);
 
 //创建 routes 对象
 const routes = [
+  //默认路由
+  {
+    path: "",
+    redirect: "/home"
+  },
   //配置映射关系(一个路由一个组件)
   {
     //访问路径
@@ -31,7 +36,11 @@ const routes = [
 //创建路由对象
 const router = new VueRouter({
   //配置路由和组件之间的映射关系
-  routes
+  routes,
+
+  //mode: history(无 # 号)    http://localhost:8080/home
+  //mode: 默认(hash) http://localhost:8080/#/home
+  mode: "history"
 });
 
 //将 router 对象传入 Vue 实例(导出对象)

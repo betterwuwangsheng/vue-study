@@ -4,8 +4,8 @@
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
 
-    <!-- 相当于占位 -->
-    <router-view></router-view>
+    <!-- 相当于占位(渲染对应 routerlink 组件) -->
+    <router-view />
   </div>
 </template>
 <script>
