@@ -4,6 +4,7 @@
     <p>I'm User Page</p>
     <h2>{{userId}}</h2>
     <h2>{{$route.params.userId}}</h2>
+    <h1>{{name}}</h1>
   </div>
 </template>
 
