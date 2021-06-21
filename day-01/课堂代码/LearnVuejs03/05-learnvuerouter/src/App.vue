@@ -1,19 +1,43 @@
 <template>
   <div id="app">
     <!-- 使用 route-link 标签的 to 属性设置要跳转的路径(与 router/index.js 一致) -->
-    <router-link to="/home">首页</router-link>
-    <router-link to="/about">关于</router-link>
+    <!-- tag 属性指定 routerlink 渲染为指定组件 -->
+    <!-- replace 属性指定页面不可返回 -->
+    <!-- <router-link to="/home" tag="button" replace>首页</router-link> -->
+    <!-- <router-link to="/about" tag="button" replace>关于</router-link> -->
 
+    <button @click="homeClick">首页</button>
+    <button @click="aboutClick">关于</button>
     <!-- 相当于占位(渲染对应 routerlink 组件) -->
-    <router-view />
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import About from "./components/About.vue";
-export default {
-  components: { About },
-  name: "App"
-};
+  //import About from "./componsents/About.vue";
+  export default {
+    //components: { About },
+    name: "App",
+    methods: {
+      homeClick() {
+
+        //通过代码修改路由
+        // this.$router.push('/home')
+        this.$router.replace('/home')
+        console.log('homeClick');
+      },
+      aboutClick() {
+        // this.$router.push('/about')
+        this.$router.replace('/about')
+        console.log('aboutClick');
+      }
+    }
+  };
+
 </script>
 
-<style></style>
+<style>
+  /* .router-link-active{
+    color: #f00;
+  } */
+
+</style>
