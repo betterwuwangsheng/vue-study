@@ -1,10 +1,10 @@
 //配置路由相关信息
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue';
+import VueRouter from "vue-router"
 
 //导入组件
-import Home from "../components/Home.vue";
-import About from "../components/About.vue";
+import Home from '../components/Home.vue'
+import About from '../components/About.vue'
 
 //通过 Vue.use(插件),安装插件
 Vue.use(VueRouter);
@@ -14,19 +14,19 @@ const routes = [
   //默认路由
   {
     path: "",
-    redirect: "/home"
+    redirect: '/home'
   },
   //配置映射关系(一个路由一个组件)
   {
     //访问路径
-    path: "/home",
+    path: '/home',
 
     //路径访问对应的组件(页面)
     component: Home
   },
   {
     //访问路径
-    path: "/about",
+    path: '/about',
 
     //路径访问对应的组件(页面)
     component: About
@@ -40,7 +40,8 @@ const router = new VueRouter({
 
   //mode: history(无 # 号)    http://localhost:8080/home
   //mode: 默认(hash) http://localhost:8080/#/home
-  mode: "history"
+  mode: 'history',
+  activeClass: 'active'
 });
 
 //将 router 对象传入 Vue 实例(导出对象)
