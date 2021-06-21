@@ -47,7 +47,7 @@
         console.log('userClick');
       }
     }
-  };
+  }
 
 </script>
 

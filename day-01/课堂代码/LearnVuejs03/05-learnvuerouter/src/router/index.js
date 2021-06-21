@@ -3,15 +3,28 @@ import Vue from 'vue';
 import VueRouter from "vue-router"
 
 //导入组件
-import Home from '../components/Home.vue'
-import About from '../components/About.vue'
-import User from '../components/User.vue'
+// import Home from '../components/Home.vue'
+// import About from '../components/About.vue'
+// import User from '../components/User.vue'
+
+//路由懒加载导入
+//路由懒加载 ES6 语法
+const Home = () => import('../components/Home')
+const About = () => import('../components/About')
+const User = () => import('../components/User')
 
 //通过 Vue.use(插件),安装插件
 Vue.use(VueRouter);
 
 //创建 routes 对象
 const routes = [
+
+  //未使用路由懒加载
+  /**随着开发 JS 包会变得非常大，影响页面加载。
+   * 如果我们能把不同路由对应的组件分割成不同的代码块
+   * 然后当路由被访问的时候才加载对应组件
+   * 这样就更加高效了
+   */
   //默认路由(特殊的放在最前面)
   {
     path: "",
