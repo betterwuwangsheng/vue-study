@@ -12,6 +12,8 @@ import VueRouter from "vue-router"
 const Home = () => import('../components/Home')
 const About = () => import('../components/About')
 const User = () => import('../components/User')
+const HomeNews = () => import('../components/HomeNews')
+const HomeMessage = () => import('../components/HomeMessage')
 
 //通过 Vue.use(插件),安装插件
 Vue.use(VueRouter);
@@ -31,12 +33,32 @@ const routes = [
     redirect: '/home'
   },
   //配置映射关系(一个路由一个组件)
+  //实现路由嵌套
   {
-    //访问路径
+    //访问路径名
     path: '/home',
 
     //路径访问对应的组件(页面)
-    component: Home
+    component: Home,
+
+    //子路由(可能有多个所以使用 children:[])
+    children: [
+
+      {
+        //默认路由
+        path: '',
+        redirect: 'message'
+      },
+      {
+        //不加斜杠(自动添加)
+        path: 'news',
+        component: HomeNews
+      },
+      {
+        path: 'message',
+        component: HomeMessage
+      }
+    ]
   },
   {
     //访问路径

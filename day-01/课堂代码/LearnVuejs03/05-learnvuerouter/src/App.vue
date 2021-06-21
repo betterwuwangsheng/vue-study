@@ -10,6 +10,8 @@
     <button @click="aboutClick">关于</button>
     <button @click="userClick">用户</button> -->
     <h1>我是 App 组件</h1>
+
+    <!-- 使用 /home/xx/xxx -->
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
 
