@@ -5,13 +5,14 @@ import VueRouter from "vue-router"
 //导入组件
 import Home from '../components/Home.vue'
 import About from '../components/About.vue'
+import User from '../components/User.vue'
 
 //通过 Vue.use(插件),安装插件
 Vue.use(VueRouter);
 
 //创建 routes 对象
 const routes = [
-  //默认路由
+  //默认路由(特殊的放在最前面)
   {
     path: "",
     redirect: '/home'
@@ -30,6 +31,11 @@ const routes = [
 
     //路径访问对应的组件(页面)
     component: About
+  },
+  {
+    //  /user/:userId 获取访问路径
+    path: '/user/:userId',
+    component: User
   }
 ];
 
@@ -41,7 +47,7 @@ const router = new VueRouter({
   //mode: history(无 # 号)    http://localhost:8080/home
   //mode: 默认(hash) http://localhost:8080/#/home
   mode: 'history',
-  activeClass: 'active'
+  linkActiveClass: 'active'
 });
 
 //将 router 对象传入 Vue 实例(导出对象)

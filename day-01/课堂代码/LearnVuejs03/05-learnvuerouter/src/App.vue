@@ -6,8 +6,15 @@
     <!-- <router-link to="/home" tag="button" replace>首页</router-link> -->
     <!-- <router-link to="/about" tag="button" replace>关于</router-link> -->
 
-    <button @click="homeClick">首页</button>
+    <!-- <button @click="homeClick">首页</button>
     <button @click="aboutClick">关于</button>
+    <button @click="userClick">用户</button> -->
+    <h1>我是 App 组件</h1>
+    <router-link to="/home">首页</router-link>
+    <router-link to="/about">关于</router-link>
+
+    <!-- 动态绑定属性(构造访问路径) -->
+    <router-link :to="'/user/' + userId">用户</router-link>
     <!-- 相当于占位(渲染对应 routerlink 组件) -->
     <router-view></router-view>
   </div>
@@ -17,9 +24,13 @@
   export default {
     //components: { About },
     name: "App",
+    data() {
+      return {
+        userId: 'wws' //真实开发为后台获取
+      }
+    },
     methods: {
       homeClick() {
-
         //通过代码修改路由
         // this.$router.push('/home')
         this.$router.replace('/home')
@@ -29,6 +40,11 @@
         // this.$router.push('/about')
         this.$router.replace('/about')
         console.log('aboutClick');
+      },
+      aboutClick() {
+        // this.$router.push('/about')
+        this.$router.replace('/user')
+        console.log('userClick');
       }
     }
   };

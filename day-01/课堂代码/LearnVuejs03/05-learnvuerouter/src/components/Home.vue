@@ -1,19 +1,12 @@
 <template>
   <div>
-    <h2>Home</h2>
-    <p>I'm Home</p>
+    <h2>Home Page</h2>
+    <p>I'm Home Page</p>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {};
-    },
-    created() {},
-    mounted() {},
-    methods: {}
-  };
+  export default {}
 
 </script>
 

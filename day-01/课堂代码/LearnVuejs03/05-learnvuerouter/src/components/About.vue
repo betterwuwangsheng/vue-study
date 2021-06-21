@@ -1,19 +1,12 @@
 <template>
   <div>
-    <h2>About</h2>
-    <p>I'm About</p>
+    <h2>About Page</h2>
+    <p>I'm About Page</p>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {}
-    },
-    created() {},
-    mounted() {},
-    methods: {}
-  };
+  export default {}
 
 </script>
 
