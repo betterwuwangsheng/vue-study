@@ -14,6 +14,7 @@ const About = () => import('../components/About')
 const User = () => import('../components/User')
 const HomeNews = () => import('../components/HomeNews')
 const HomeMessage = () => import('../components/HomeMessage')
+const Profile = () => import('../components/Profile')
 
 //通过 Vue.use(插件),安装插件
 Vue.use(VueRouter);
@@ -71,6 +72,10 @@ const routes = [
     //  /user/:userId 获取访问路径
     path: '/user/:userId',
     component: User
+  },
+  {
+    path: '/profile',
+    component: Profile
   }
 ];
 

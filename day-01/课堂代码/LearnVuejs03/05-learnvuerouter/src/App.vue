@@ -17,6 +17,11 @@
 
     <!-- 动态绑定属性(构造访问路径) -->
     <router-link :to="'/user/' + userId">用户</router-link>
+    <!-- 使用路由必须使用   <router-link :to= -->
+    <!-- <router-link to="/profile">档案</router-link> -->
+    <!-- 传参型书写方式 :to="{path:'/profile',query:{}}"-->
+    <!-- http://localhost:8080/profile?name=wws&age=23 -->
+    <router-link :to="{path:'/profile',query:{name:'wws', age:23}}">档案</router-link>
     <!-- 相当于占位(渲染对应 routerlink 组件) -->
     <router-view></router-view>
   </div>
