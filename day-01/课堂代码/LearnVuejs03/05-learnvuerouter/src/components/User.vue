@@ -14,6 +14,12 @@
     created: function () {
       console.log('created');
     },
+    created: function () {
+      console.log('User created')
+    },
+    destroyed: function () {
+      console.log('User destroyed')
+    },
     //计算属性
     computed: {
       //获取 App 组件通过路由传过来的 userId 属性

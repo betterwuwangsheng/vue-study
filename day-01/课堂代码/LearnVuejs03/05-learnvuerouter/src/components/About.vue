@@ -9,9 +9,12 @@
   export default {
     name: 'About',
     created: function () {
-      console.log('created');
+      console.log('about created');
       document.title = '关于'
     },
+    destroyed: function () {
+      console.log('about destroyed')
+    }
   }
 
 </script>

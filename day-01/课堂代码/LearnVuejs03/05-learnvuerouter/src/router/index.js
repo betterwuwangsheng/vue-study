@@ -49,11 +49,11 @@ const routes = [
     //子路由(可能有多个所以使用 children:[])
     children: [
 
-      {
-        //默认路由
-        path: '',
-        redirect: 'message',
-      },
+      // {
+      //   //默认路由
+      //   path: '',
+      //   redirect: 'message',
+      // },
       {
         //不加斜杠(自动添加)
         path: 'news',
@@ -71,6 +71,11 @@ const routes = [
 
     //路径访问对应的组件(页面)
     component: About,
+
+    //局部导航守卫
+    beforeEnter: (to, from, next) => {
+      console.log('about beforeEnter')
+    },
     //元数据
     meta: {
       title: '关于'
@@ -88,7 +93,7 @@ const routes = [
   {
     path: '/profile',
     component: Profile,
-    //元数据
+    //元数据(描述数据的数据)
     meta: {
       title: '档案'
     },
@@ -106,11 +111,18 @@ const router = new VueRouter({
   linkActiveClass: 'active'
 });
 
+//前置守卫(hook -回调)
 router.beforeEach((to, from, next) => {
 
   //从 from 跳转到 to 
   document.title = to.matched[0].meta.title
+  console.log(to)
   next()
+})
+
+//后置钩子
+router.afterEach((to, from) => {
+  console.log('-------')
 })
 //将 router 对象传入 Vue 实例(导出对象)
 export default router

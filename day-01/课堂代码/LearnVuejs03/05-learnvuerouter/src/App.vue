@@ -27,7 +27,13 @@
 
     <!-- <button @click="userClick">用户</button>
     <button @click="profileClick">档案</button> -->
-    <router-view> </router-view>
+    <!-- router-view、keep-alive 是内置组件 -->
+    <!-- 该页面保持活跃(返回时不会创建新的组件) -->
+    <!-- exclude="组件名称" 不包含-->
+    <!-- include="组件名称" 包含-->
+    <keep-alive exclude="Profile,User">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -75,7 +81,7 @@
           }
         })
       }
-    }
+    },
   }
 
 </script>
