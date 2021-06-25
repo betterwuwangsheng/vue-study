@@ -23,7 +23,11 @@
     <!-- http://localhost:8080/profile?name=wws&age=23 -->
     <router-link :to="{path:'/profile',query:{name:'wws', age:23}}">档案</router-link>
     <!-- 相当于占位(渲染对应 routerlink 组件) -->
-    <router-view></router-view>
+
+
+    <!-- <button @click="userClick">用户</button>
+    <button @click="profileClick">档案</button> -->
+    <router-view> </router-view>
   </div>
 </template>
 <script>
@@ -52,6 +56,24 @@
         // this.$router.push('/about')
         this.$router.replace('/user')
         console.log('userClick');
+      },
+
+      //通过  this.$router.push() 实现跳转功能
+      userClick() {
+        this.$router.push('/user' + this.userId)
+      },
+      profileClick() {
+        this.$router.push({
+
+          //路径
+          path: '/profile',
+
+          //传递的数据
+          query: {
+            name: 'wws',
+            age: '23'
+          }
+        })
       }
     }
   }

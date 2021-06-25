@@ -6,7 +6,13 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    name: 'About',
+    created: function () {
+      console.log('created');
+      document.title = '关于'
+    },
+  }
 
 </script>
 

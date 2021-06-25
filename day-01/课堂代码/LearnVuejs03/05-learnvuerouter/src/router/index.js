@@ -42,18 +42,22 @@ const routes = [
     //路径访问对应的组件(页面)
     component: Home,
 
+    //元数据
+    meta: {
+      title: '首页'
+    },
     //子路由(可能有多个所以使用 children:[])
     children: [
 
       {
         //默认路由
         path: '',
-        redirect: 'message'
+        redirect: 'message',
       },
       {
         //不加斜杠(自动添加)
         path: 'news',
-        component: HomeNews
+        component: HomeNews,
       },
       {
         path: 'message',
@@ -66,16 +70,28 @@ const routes = [
     path: '/about',
 
     //路径访问对应的组件(页面)
-    component: About
+    component: About,
+    //元数据
+    meta: {
+      title: '关于'
+    },
   },
   {
     //  /user/:userId 获取访问路径
     path: '/user/:userId',
-    component: User
+    component: User,
+    //元数据
+    meta: {
+      title: '用户'
+    },
   },
   {
     path: '/profile',
-    component: Profile
+    component: Profile,
+    //元数据
+    meta: {
+      title: '档案'
+    },
   }
 ];
 
@@ -90,5 +106,11 @@ const router = new VueRouter({
   linkActiveClass: 'active'
 });
 
+router.beforeEach((to, from, next) => {
+
+  //从 from 跳转到 to 
+  document.title = to.matched[0].meta.title
+  next()
+})
 //将 router 对象传入 Vue 实例(导出对象)
-export default router;
+export default router
