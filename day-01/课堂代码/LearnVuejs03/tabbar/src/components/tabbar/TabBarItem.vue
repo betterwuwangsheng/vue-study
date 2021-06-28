@@ -14,7 +14,7 @@
     </div>
 
     <!-- 动态绑定外层样式 -->
-    <div :class="{active: isActive}">
+    <div :style="activeStyle">
       <!-- 文字插槽(具名插槽) -->
       <slot name="item-text" :class="{active: isActive}"></slot>
     </div>
@@ -27,10 +27,26 @@
     //属性
     props: {
       path: String,
+      activeColor: {
+        type: String,
+        default: 'red'
+      },
     },
     data() {
       return {
-        isActive: true,
+        //isActive: true,
+      }
+    },
+    computed: {
+      isActive() {
+
+        //当前活跃路由是否包含我的 path
+        return this.$route.path.indexOf(this.path) !== -1
+      },
+      activeStyle() {
+        return this.isActive ? {
+          color: this.activeColor
+        } : {}
       }
     },
     methods: {
@@ -72,10 +88,6 @@
 
     /* 下方像素 */
     margin-bottom: 2px;
-  }
-
-  .active {
-    color: red;
   }
 
 </style>
