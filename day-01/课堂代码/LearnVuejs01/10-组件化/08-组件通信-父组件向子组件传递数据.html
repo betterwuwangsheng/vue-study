@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
+
 <body>
-<div id="app">
-  <cpn :cmovies="movies" :cmessage="message"></cpn>
-</div>
-
-<!-- 子组件的标签通过属性（配合 v-bind(:xx)）将父组件的 data 中的数据拿到自己手上-->
-<template id="cpn">
-  <div>
-    <p>{{cmovies}}</p>
-    <h2>{{cmessage}}</h2>
+  <div id="app">
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
   </div>
-</template>
-<script src="../js/vue.js"></script>
-<script>
-  //此为父组件
-  //父传子: props
-  const cpn = {
 
-    //模板属性
-    template: '#cpn',
+  <!-- 子组件的标签通过属性（配合 v-bind(:xx)）将父组件的 data 中的数据拿到自己手上-->
+  <template id="cpn">
+    <div>
+      <p>{{cmovies}}</p>
+      <h2>{{cmessage}}</h2>
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    //此为父组件
+    //父传子: props
+    const cpn = {
 
-    //数据属性(必须是函数并且要返回一个对象)
-    data() {
-      return {}
-    },
+      //模板属性
+      template: '#cpn',
 
-    //函数属性
-    methods: {},
-
-    //prop 属性 -> 数组 ['变量名'] -> 父组件传数据给子组件
-    //prop 属性 -> 对象 {} -> 父组件传数据给子组件
-    props: {//这种方式更加常用
-      cmovies: Array,//必须是数组类型
-      cmessage: String,//必须是 String 类型
-      cmovies: {
-        type: String,
-        default: 'sss',
-        required: true//必传属性
+      //数据属性(必须是函数并且要返回一个对象)
+      data() {
+        return {}
       },
-    }
-  }
-  const app = new Vue({
-    el: '#app',
-    data: {
-      message: 'wws',
-      movies: ['绿皮书', '战狼', '流浪地球']
-    },
 
-    //局部组件(语法糖方式)
-    components: {
-      //属性的增强写法
-      cpn
+      //函数属性
+      methods: {},
+
+      //父传子 子组件 props 属性
+      //父组件 :变量="变量" 进行使用
+      //prop 属性 -> 数组 ['变量名'] -> 父组件传数据给子组件
+      //prop 属性 -> 对象 {} -> 父组件传数据给子组件
+      props: { //这种方式更加常用
+        cmovies: Array, //必须是数组类型
+        cmessage: String, //必须是 String 类型
+        cmovies: {
+          type: String,
+          default: 'sss',
+          required: true //必传属性
+        },
+      }
     }
-  })
-</script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'wws',
+        movies: ['绿皮书', '战狼', '流浪地球']
+      },
+
+      //局部组件(语法糖方式)
+      components: {
+        //属性的增强写法
+        cpn
+      }
+    })
+  </script>
 </body>
+
 </html>
