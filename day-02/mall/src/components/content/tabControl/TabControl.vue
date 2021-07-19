@@ -35,6 +35,12 @@
 
         //点击时修改当前 index
         this.currentIndex = index
+
+        //将数据（currentIndex）传出去
+        //子传父 
+        //利用 this.$emit('自定义事件名称', 数据) 方法
+        //把值传递给父组件
+        this.$emit('tabClick', index);
       }
     }
   }
