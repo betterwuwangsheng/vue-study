@@ -2,7 +2,10 @@
   <div id="app">
 
     <!-- 占用位置 -->
-    <router-view />
+    <!-- 离开时保持活跃 -->
+    <keep-alive exclude="Detail">
+      <router-view />
+    </keep-alive>
     <main-tab-bar />
   </div>
 </template>

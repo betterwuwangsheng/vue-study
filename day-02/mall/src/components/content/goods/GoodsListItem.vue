@@ -1,6 +1,8 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goods-item" @click="itemClick">
+
+    <!-- vue 中监听图片加载 @load="" -->
+    <img :src="showImgae" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">
@@ -23,6 +25,27 @@
         default () {
           return {}
         }
+      }
+    },
+    computed: {
+      showImgae() {
+        return this.goodsItem.image || this.goodsItem.show.img
+      }
+    },
+    methods: {
+
+      //图片加载
+      imageLoad() {
+
+        //事件总线
+        this.$bus.$emit('itemImageLoad')
+      },
+
+      //跳转到详情页
+      itemClick() {
+
+        //跳转(动态路由跳转)
+        this.$router.push('/detail/' + this.goodsItem.iid)
       }
     }
   }
